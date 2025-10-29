@@ -2,7 +2,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+# ----------------------------
+# Task Model — represents each task created by a user.
+# ----------------------------
 class Task(models.Model):
     """
     The sample entity for CRUD operations.
