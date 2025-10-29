@@ -39,23 +39,22 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 Backend runs on http://127.0.0.1:8000
+```
+### **Frontend Setup**
 
-Frontend Setup
-bash
-Copy code
+```
 cd frontend
 npm install
 npm run dev
 Frontend runs on http://localhost:3000
-
-🔐 Authentication Flow
+```
+### **🔐 Authentication Flow**
 JWT tokens are issued upon login (/api/token/).
 Tokens are stored securely in local storage.
 Protected routes are only accessible when authenticated.
 
-📁 Project Structure
-bash
-Copy code
+### **📁 Project Structure**
+```
 frontend-developer-task/
 │
 ├── backend/          # Django project (settings, urls, wsgi)
@@ -66,6 +65,7 @@ frontend-developer-task/
 ├── manage.py         # Django project manager
 ├── requirements.txt  # Backend dependencies
 └── README.md         # Project documentation
-✨ Author
-Aswin
+```
+### **✨ Author**
+##### **Aswin**
 Frontend Developer Task — 2025
