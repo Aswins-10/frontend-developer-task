@@ -48,24 +48,78 @@ npm install
 npm run dev
 Frontend runs on http://localhost:3000
 ```
-### **🔐 Authentication Flow**
-JWT tokens are issued upon login (/api/token/).
-Tokens are stored securely in local storage.
-Protected routes are only accessible when authenticated.
+## 🔐 Authentication Flow
+
+JWT tokens are issued upon **login** (`/api/token/`).  
+Tokens are stored securely in **local storage**, and all protected routes are only accessible when authenticated.  
+This ensures that unauthorized users cannot access task operations.
+
 
 ### **📁 Project Structure**
 ```
 frontend-developer-task/
 │
-├── backend/          # Django project (settings, urls, wsgi)
-│   ├── api/          # Django app (models, views, serializers, urls)
+├── backend/               # Django project (settings, urls, wsgi)
+│   ├── api/               # Django app (models, views, serializers, urls)
 │
-├── frontend/         # Next.js frontend app
+├── frontend/              # Next.js frontend app
 │
-├── manage.py         # Django project manager
-├── requirements.txt  # Backend dependencies
-└── README.md         # Project documentation
+├── postman/               # Postman collection for API testing
+│   └── frontend-developer-task-api.postman_collection.json
+│
+├── manage.py              # Django project manager
+├── requirements.txt       # Backend dependencies
+└── README.md              # Project documentation
+
 ```
-### **✨ Author**
-##### **Aswin**
-Frontend Developer Task — 2025
+## 🧪 API Testing (Postman Collection)
+
+All APIs for authentication and task management can be tested using **Postman**.
+
+📁 **Collection File:**  
+[`/postman/frontend-developer-task-api.postman_collection.json`](./postman/frontend-developer-task-api.postman_collection.json)
+
+This collection includes:
+
+- **User Registration** – `POST /api/register/`  
+- **Login (JWT)** – `POST /api/token/`  
+- **View All Tasks** – `GET /api/tasks/`  
+- **Create Task** – `POST /api/tasks/`  
+- **Update Task** – `PUT /api/tasks/{id}/`  
+- **Delete Task** – `DELETE /api/tasks/{id}/`  
+
+You can also **import this file directly into Postman** for quick testing.
+
+---
+
+## 🚀 Scaling Notes
+
+This project is built with **Django REST Framework** and can scale efficiently with the following strategies:
+
+### 🗄️ Database Scaling
+- Move from a single **MySQL instance** to a managed service (e.g., **AWS RDS**).  
+- Use **read replicas** and **Redis caching** to handle heavy reads and reduce DB load.
+
+### ⚙️ Backend Scaling
+- Serve Django via **Gunicorn + Nginx** or **Uvicorn + ASGI** for better concurrency.  
+- Containerize using **Docker** and deploy with **Kubernetes** or **AWS ECS** for horizontal scaling.
+
+### 💻 Frontend Optimization
+- Serve the **Next.js static build** from a **CDN (Cloudflare/AWS CloudFront)**.  
+- Enable **code splitting** and **lazy loading** to improve initial load times.
+
+### 🔐 Security Enhancements
+- Use **HTTPS**, **environment variables** for secrets, and secure **JWT handling**.  
+- Implement **rate limiting** and **token rotation** for better protection.
+
+### 📊 Monitoring & Logging
+- Integrate with **Sentry** or **Prometheus** for live error tracking and analytics.  
+- Implement **structured logs** with request IDs for better debugging.
+
+---
+
+## ✨ Author
+
+**Aswin**  
+Frontend Developer Task — 2025  
+📧 _Developed as part of a full-stack assignment using Next.js and Django REST Framework_
