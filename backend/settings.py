@@ -1,6 +1,4 @@
-"""
-Django settings for core project.
-"""
+"""Django settings for backend project."""
 
 from pathlib import Path
 from datetime import timedelta  # NEW: Required for SIMPLE_JWT configuration
@@ -49,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
@@ -66,7 +64,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database - UPDATED FOR MYSQL
